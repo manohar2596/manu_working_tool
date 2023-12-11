@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product['name'] }}</title>
+</head>
+
+<body>
+    <h2>{{ product['name'] }}</h2>
+
+    {% if category == 'crafting_scissors' %}
+        <p>Category: Crafting Scissors</p>
+        <img src="{{ url_for('static', filename='scissors/' + product['image']) }}" alt="{{ product['name'] }} Image">
+    {% elif category == 'welding_machines' %}
+        <p>Category: Welding Machines</p>
+        <img src="{{ url_for('static', filename='welding_machines/' + product['image']) }}" alt="{{ product['name'] }} Image">
+    {% elif category == 'welding_rods' %}
+        <p>Category: Welding Rods</p>
+        <img src="{{ url_for('static', filename='welding_rods/' + product['image']) }}" alt="{{ product['name'] }} Image">
+    {% elif category == 'measurement_tapes' %}
+        <p>Category: Measurement Tapes</p>
+        <img src="{{ url_for('static', filename='measurement_tapes/' + product['image']) }}" alt="{{ product['name'] }} Image">
+    {% endif %}
+
+    <p>Description: {{ product['description'] }}</p>
+    <p>Price: {{ product['price'] }}</p>
+    <p>Guarantee: {{ product['guarantee'] }}</p>
+    <p>Metal: {{ product.get('metal', '') }}</p>
+    <p>Weight: {{ product.get('weight', '') }}</p>
+
+    <!-- Additional details for specific categories -->
+    {% if category in ['welding_machines', 'welding_rods'] %}
+        {% if product['id'] == '200-amps' %}
+            <h3>Additional Details for 200 Amps Welding Machine</h3>
+            {% if 'specifications' in product %}
+                <ul>
+                    <li>Amps: 200</li>
+                    <li>Weight: 5 kgs</li>
+                    <li>Type: Board</li>
+                    <!-- Add any other specific details for 200 Amps Welding Machine -->
+                </ul>
+            {% else %}
+                <p>No specifications available for this product.</p>
+            {% endif %}
+        {% elif product['id'] == '400-amps' %}
+            <h3>Additional Details for 400 Amps Welding Machine</h3>
+            {% if 'specifications' in product %}
+                <ul>
+                    <li>Amps: 400</li>
+                    <li>Weight: 15 kgs</li>
+                    <li>Type: Board and Winding</li>
+                    <!-- Add any other specific details for 400 Amps Welding Machine -->
+                </ul>
+            {% else %}
+                <p>No specifications available for this product.</p>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+    <!-- Include specifications as before -->
+    <h3>Specifications</h3>
+    {% if 'specifications' in product %}
+        <ul>
+            {% for key, value in product['specifications'].items() %}
+                <li>{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No specifications available for this product.</p>
+    {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Manu Working Tools</title>
+</head>
+<body>
+    <h1>Welcome to Manu Working Tools</h1>
+    <ul>
+        <li><a href="{{ url_for('search_results', category='crafting_scissors') }}">Crafting Scissors</a></li>
+        <li><a href="{{ url_for('search_results', category='welding_machines') }}">Welding Machines</a></li>
+        <li><a href="{{ url_for('search_results', category='welding_rods') }}">Welding Rods</a></li>
+        <li><a href="{{ url_for('search_results', category='measurement_tapes') }}">Measurement Tapes</a></li>
+        <!-- Add more links for other categories -->
+    </ul>
+</body>
+</html>

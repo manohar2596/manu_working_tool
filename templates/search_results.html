@@ -1,0 +1,33 @@
+<!-- search_results.html -->
+
+<h1>Welcome to Manu Working Tools</h1>
+
+{% if category == 'crafting_scissors' %}
+    <h2>Crafting Scissors</h2>
+    <ul>
+        {% for product in products %}
+            <li><a href="{{ url_for('product_detail', category=category, product_id=product['id']) }}">{{ product['name'] }}</a></li>
+        {% endfor %}
+    </ul>
+{% elif category == 'welding_machines' %}
+    <h2>Welding Machines</h2>
+    <ul>
+        {% for product in products %}
+            <li><a href="{{ url_for('product_detail', category=category, product_id=product['id']) }}">{{ product['name'] }}</a></li>
+        {% endfor %}
+    </ul>
+{% elif category == 'welding_rods' %}
+    <h2>Welding Rods</h2>
+    <ul>
+        {% for product in products %}
+            <li><a href="{{ url_for('product_detail', category=category, product_id=product['id']) }}">{{ product['name'] }}</a></li>
+        {% endfor %}
+    </ul>
+{% elif category == 'measurement_tapes' %}
+    <h2>Measurement Tapes</h2>
+    <ul>
+        {% for product in products %}
+            <li><a href="{{ url_for('product_detail', category=category, product_id=product['id']) }}">{{ product['name'] }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
