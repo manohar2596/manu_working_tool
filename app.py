@@ -2,6 +2,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 app.template_folder = 'templates'
+app.static_folder = 'static'
 
 # Crafting scissors data
 crafting_scissors = [
@@ -184,4 +185,5 @@ def product_detail(category, product_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+   app.run(host='0.0.0.0', port=5000, debug=True)
+ 

@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Manu Working Tools</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <div id="header">
     <h1>Welcome to Manu Working Tools</h1>
     <ul>
         <li><a href="{{ url_for('search_results', category='crafting_scissors') }}">Crafting Scissors</a></li>
